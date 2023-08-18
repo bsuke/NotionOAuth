@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "express": "4.18.2",
-    // 他の必要なモジュールも追加
   },
   "keywords": [],
   "author": "",
