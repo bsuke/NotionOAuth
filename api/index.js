@@ -4,7 +4,7 @@ const fetch = require('node-fetch');  // 追加: Notion APIへのリクエスト
 const app = express();
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '..', 'views'));
+app.set('views', path.join(__dirname, '../views'));
 
 // 基本的なルートハンドラの追加
 app.get('/', (req, res) => {
