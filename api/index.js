@@ -14,6 +14,9 @@ app.get('/', (req, res) => {
 app.get('/oauth-callback', async (req, res) => {
     const { code } = req.query;
     
+    // ここで認証コードをログとして出力
+    console.log("Received authorization code:", code);
+    
     // 一時的な認証コードを使用してaccess_tokenを取得
     const clientId = process.env.OAUTH_CLIENT_ID;
     const clientSecret = process.env.OAUTH_CLIENT_SECRET;
@@ -24,8 +27,7 @@ app.get('/oauth-callback', async (req, res) => {
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json",
-            "Authorization": `Basic ${encoded}`,
-            "Notion-Version": "2022-06-28" 
+            "Authorization": `Basic ${encoded}`
         },
         body: JSON.stringify({
             grant_type: "authorization_code",
@@ -34,7 +36,7 @@ app.get('/oauth-callback', async (req, res) => {
         }),
     });
     const data = await response.json();
-    
+
     // Notion APIからのレスポンスをログに出力
     console.log(data);  // この行を追加
     
