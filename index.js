@@ -4,6 +4,11 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
+// 基本的なルートハンドラの追加
+app.get('/', (req, res) => {
+    res.send('Hello, this is my Notion OAuth server!');
+});
+
 app.get('/oauth-callback', async (req, res) => {
     const { code } = req.query;
     
