@@ -35,6 +35,9 @@ app.get('/oauth-callback', async (req, res) => {
     });
     const data = await response.json();
     
+    // Notion APIからのレスポンスをログに出力
+    console.log(data);  // この行を追加
+    
     // access_tokenとworkspace_idをWebページに表示
     res.render('display', { accessToken: data.access_token, databaseId: data.workspace_id });
 });
