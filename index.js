@@ -18,6 +18,7 @@ app.get('/oauth-callback', async (req, res) => {
             "Accept": "application/json",
             "Content-Type": "application/json",
             "Authorization": `Basic ${encoded}`,
+            "Notion-Version": "2022-06-28" 
         },
         body: JSON.stringify({
             grant_type: "authorization_code",
