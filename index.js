@@ -30,7 +30,3 @@ app.get('/oauth-callback', async (req, res) => {
     // access_tokenとworkspace_idをWebページに表示
     res.render('display', { accessToken: data.access_token, databaseId: data.workspace_id });
 });
-
-app.listen(3000, () => {
-    console.log('Server started on http://localhost:3000');
-});
