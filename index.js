@@ -36,3 +36,5 @@ app.get('/oauth-callback', async (req, res) => {
     // access_tokenとworkspace_idをWebページに表示
     res.render('display', { accessToken: data.access_token, databaseId: data.workspace_id });
 });
+
+module.exports = app;
