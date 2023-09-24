@@ -2,9 +2,25 @@
 <html>
 <head>
     <title>Notion OAuth</title>
+    <script>
+        function copyToClipboard() {
+            const el = document.getElementById('accessTokenContent');
+            const textArea = document.createElement('textarea');
+            textArea.value = el.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            alert("Access Token copied to clipboard!");
+        }
+    </script>
 </head>
 <body>
     <h1>Notion Authentication Details</h1>
-    <p><strong>Access Token:</strong> <%= accessToken %></p>
+    <p>
+        <strong>Access Token:</strong> 
+        <span id="accessTokenContent"><%= accessToken %></span>
+        <button onclick="copyToClipboard()">コピー</button>
+    </p>
 </body>
 </html>
