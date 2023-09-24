@@ -38,7 +38,7 @@ app.get('/oauth-callback', async (req, res) => {
 
     console.log(data);
     
-    res.render('display', { accessToken: data.access_token, databaseId: data.workspace_id });
+    res.render('display', { accessToken: data.access_token});
 });
 
 module.exports = app;
